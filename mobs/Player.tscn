@@ -1,0 +1,116 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://mobs/Player.gd" type="Script" id=1]
+[ext_resource path="res://media/fonts/base_font_32.tres" type="DynamicFont" id=2]
+
+[sub_resource type="SpatialMaterial" id=1]
+albedo_color = Color( 0.215686, 0.788235, 0.00784314, 1 )
+
+[sub_resource type="CubeMesh" id=2]
+material = SubResource( 1 )
+size = Vector3( 1, 1, 1 )
+
+[sub_resource type="CylinderMesh" id=3]
+top_radius = 0.2
+bottom_radius = 0.2
+height = 0.1
+
+[sub_resource type="SpatialMaterial" id=4]
+albedo_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="CylinderMesh" id=5]
+material = SubResource( 4 )
+top_radius = 0.05
+bottom_radius = 0.05
+height = 0.05
+
+[sub_resource type="ConvexPolygonShape" id=6]
+points = PoolVector3Array( -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5 )
+
+[node name="Player" type="KinematicBody"]
+script = ExtResource( 1 )
+turret = NodePath("Turret")
+
+[node name="MeshInstance" type="MeshInstance" parent="."]
+use_in_baked_light = true
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="MeshInstance" type="MeshInstance" parent="MeshInstance"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0.243755, 0.230834, -0.528662 )
+mesh = SubResource( 3 )
+material/0 = null
+
+[node name="MeshInstance" type="MeshInstance" parent="MeshInstance/MeshInstance"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.062855, 0 )
+mesh = SubResource( 5 )
+material/0 = null
+
+[node name="MeshInstance2" type="MeshInstance" parent="MeshInstance"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -0.233355, 0.230834, -0.528662 )
+mesh = SubResource( 3 )
+material/0 = null
+
+[node name="MeshInstance" type="MeshInstance" parent="MeshInstance/MeshInstance2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.062855, 0 )
+mesh = SubResource( 5 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 1.05059, 0, 0, 0, 1, 0, 0, 0, 1.02757, 0, 0, 0 )
+shape = SubResource( 6 )
+
+[node name="Tween" type="Tween" parent="."]
+
+[node name="Turret" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.74043, 0 )
+
+[node name="Camera" type="Camera" parent="Turret"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.564577, 1.12558 )
+
+[node name="network_timer" type="Timer" parent="."]
+wait_time = 0.05
+autostart = true
+
+[node name="crosshair" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -20.0
+margin_top = -7.0
+margin_right = 20.0
+margin_bottom = 7.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "+"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="health" type="Label" parent="."]
+margin_right = 40.0
+margin_bottom = 14.0
+custom_fonts/font = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="hit_label" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -23.1784
+margin_top = -56.7947
+margin_right = 16.8216
+margin_bottom = -42.7947
+custom_fonts/font = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tween" type="Tween" parent="hit_label"]
+
+[connection signal="timeout" from="network_timer" to="." method="_on_network_timer_timeout"]

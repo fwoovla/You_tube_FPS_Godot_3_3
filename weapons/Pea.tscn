@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://weapons/Pea.gd" type="Script" id=1]
+
+[sub_resource type="SpatialMaterial" id=1]
+albedo_color = Color( 0.780392, 0.541176, 1, 1 )
+
+[sub_resource type="CubeMesh" id=2]
+material = SubResource( 1 )
+size = Vector3( 0.05, 0.05, 0.05 )
+
+[sub_resource type="ConvexPolygonShape" id=3]
+points = PoolVector3Array( -0.025, 0.025, 0.025, 0.025, 0.025, -0.025, 0.025, 0.025, 0.025, -0.025, 0.025, -0.025, -0.025, -0.025, 0.025, 0.025, -0.025, -0.025, 0.025, -0.025, 0.025, -0.025, -0.025, -0.025, 0.025, 0.025, 0.025, -0.025, 0.025, -0.025, 0.025, 0.025, -0.025, -0.025, 0.025, 0.025, 0.025, -0.025, 0.025, -0.025, -0.025, -0.025, 0.025, -0.025, -0.025, -0.025, -0.025, 0.025, 0.025, 0.025, 0.025, -0.025, -0.025, 0.025, -0.025, 0.025, 0.025, 0.025, -0.025, 0.025, 0.025, 0.025, -0.025, -0.025, -0.025, -0.025, -0.025, 0.025, -0.025, 0.025, -0.025, -0.025 )
+
+[node name="Pea" type="Spatial"]
+script = ExtResource( 1 )
+
+[node name="MeshInstance" type="MeshInstance" parent="."]
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[node name="Area" type="Area" parent="."]
+
+[node name="CollisionShape" type="CollisionShape" parent="Area"]
+shape = SubResource( 3 )
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="body_entered" from="Area" to="." method="_on_Area_body_entered"]

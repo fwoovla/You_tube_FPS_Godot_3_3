@@ -1,0 +1,82 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://media/fonts/base_font_32.tres" type="DynamicFont" id=1]
+[ext_resource path="res://media/fonts/conthrax-sb.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://ui/Network_ui.gd" type="Script" id=3]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.168627, 0.352941, 0.356863, 1 )
+
+[sub_resource type="DynamicFont" id=2]
+font_data = ExtResource( 2 )
+
+[node name="Network_ui" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_styles/panel = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Create_button" type="Button" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -81.0
+margin_top = -118.5
+margin_right = 69.0
+margin_bottom = -73.5
+custom_fonts/font = ExtResource( 1 )
+text = "Create"
+
+[node name="Join_button" type="Button" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -56.0
+margin_top = 42.5
+margin_right = 46.0
+margin_bottom = 87.5
+custom_fonts/font = ExtResource( 1 )
+text = "Join"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Quit_button" type="Button" parent="."]
+margin_right = 12.0
+margin_bottom = 20.0
+custom_fonts/font = ExtResource( 1 )
+text = "Quit"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LineEdit" type="LineEdit" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -128.5
+margin_top = 138.0
+margin_right = 120.5
+margin_bottom = 162.0
+grow_horizontal = 2
+grow_vertical = 2
+custom_fonts/font = SubResource( 2 )
+align = 1
+placeholder_text = "enter ip address"
+
+[connection signal="pressed" from="Create_button" to="." method="_on_Create_button_pressed"]
+[connection signal="pressed" from="Join_button" to="." method="_on_Join_button_pressed"]
+[connection signal="pressed" from="Quit_button" to="." method="_on_Quit_button_pressed"]
+[connection signal="text_changed" from="LineEdit" to="." method="_on_LineEdit_text_changed"]
