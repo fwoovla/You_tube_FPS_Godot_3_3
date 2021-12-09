@@ -1,0 +1,292 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://levels/Lobby_ui.gd" type="Script" id=1]
+[ext_resource path="res://media/fonts/base_font_32.tres" type="DynamicFont" id=4]
+[ext_resource path="res://media/fonts/conthrax-sb.ttf" type="DynamicFontData" id=5]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.160784, 0.152941, 0.152941, 0.290196 )
+
+[sub_resource type="DynamicFont" id=2]
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=3]
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 8
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 30
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=14]
+size = 20
+font_data = ExtResource( 5 )
+
+[sub_resource type="StyleBoxFlat" id=15]
+bg_color = Color( 0.160784, 0.152941, 0.152941, 0.290196 )
+
+[sub_resource type="DynamicFont" id=16]
+size = 20
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=17]
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=18]
+size = 20
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=11]
+size = 20
+font_data = ExtResource( 5 )
+
+[sub_resource type="StyleBoxFlat" id=12]
+bg_color = Color( 0.160784, 0.152941, 0.152941, 0.290196 )
+
+[sub_resource type="DynamicFont" id=13]
+size = 20
+font_data = ExtResource( 5 )
+
+[node name="Lobby_ui" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Game_panel" type="Panel" parent="."]
+margin_left = 808.0
+margin_top = 81.0
+margin_right = 1002.0
+margin_bottom = 409.0
+custom_styles/panel = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Create_server_button" type="Button" parent="Game_panel"]
+margin_left = 16.9592
+margin_top = 122.429
+margin_right = 177.959
+margin_bottom = 148.43
+custom_fonts/font = SubResource( 2 )
+text = "Create Server"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Join_server_button" type="Button" parent="Game_panel"]
+margin_left = 30.3064
+margin_top = 161.634
+margin_right = 165.306
+margin_bottom = 187.634
+custom_fonts/font = SubResource( 2 )
+text = "Join Server"
+
+[node name="LineEdit" type="LineEdit" parent="Game_panel"]
+margin_left = 13.1224
+margin_top = 240.286
+margin_right = 187.122
+margin_bottom = 270.286
+custom_fonts/font = SubResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Game_panel"]
+margin_left = 30.3064
+margin_top = 211.023
+margin_right = 232.306
+margin_bottom = 227.023
+custom_fonts/font = SubResource( 4 )
+text = "Type IP address of server:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="Game_panel"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -48.0
+margin_top = 12.3471
+margin_right = 49.0
+margin_bottom = 93.3471
+custom_fonts/font = SubResource( 5 )
+text = "Play"
+
+[node name="Single_player_button" type="Button" parent="Game_panel"]
+margin_left = 19.0
+margin_top = 69.0
+margin_right = 167.0
+margin_bottom = 100.0
+custom_fonts/font = SubResource( 14 )
+text = "Solo Game"
+
+[node name="Settings_panel" type="Panel" parent="."]
+margin_left = 28.3674
+margin_top = 85.9791
+margin_right = 386.367
+margin_bottom = 415.979
+custom_styles/panel = SubResource( 15 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Settings_panel"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -159.0
+margin_right = 159.0
+margin_bottom = 81.0
+custom_fonts/font = ExtResource( 4 )
+text = "Player Settings
+"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Username_edit" type="LineEdit" parent="Settings_panel"]
+margin_left = 34.0
+margin_top = 76.0
+margin_right = 304.0
+margin_bottom = 100.0
+
+[node name="Username_label" type="Label" parent="Settings_panel"]
+margin_left = 106.634
+margin_top = 112.246
+margin_right = 242.634
+margin_bottom = 137.246
+custom_fonts/font = SubResource( 16 )
+text = "Username"
+
+[node name="Label2" type="Label" parent="Settings_panel"]
+margin_left = 510.0
+margin_top = 134.0
+margin_right = 550.0
+margin_bottom = 148.0
+
+[node name="Players_panel" type="Panel" parent="."]
+visible = false
+margin_left = 410.494
+margin_top = 80.224
+margin_right = 768.494
+margin_bottom = 410.224
+custom_styles/panel = SubResource( 15 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Players_panel"]
+margin_left = 77.4499
+margin_top = 3.3674
+margin_right = 251.45
+margin_bottom = 84.3674
+custom_fonts/font = ExtResource( 4 )
+text = "Players
+"
+
+[node name="ItemList" type="ItemList" parent="Players_panel"]
+margin_left = 71.0
+margin_top = 88.0
+margin_right = 285.0
+margin_bottom = 277.0
+custom_fonts/font = SubResource( 17 )
+
+[node name="Welcome_label" type="Label" parent="."]
+visible = false
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -69.3674
+margin_top = -84.511
+margin_right = 68.6326
+margin_bottom = -3.5108
+grow_horizontal = 2
+grow_vertical = 2
+custom_fonts/font = SubResource( 18 )
+text = "textfsdfsd
+
+"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Quit_button" type="Button" parent="."]
+margin_left = 873.102
+margin_top = 362.857
+margin_right = 938.102
+margin_bottom = 396.857
+custom_fonts/font = SubResource( 11 )
+text = "Quit"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Start_button" type="Button" parent="."]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -100.796
+margin_top = 119.532
+margin_right = 141.204
+margin_bottom = 183.532
+custom_fonts/font = ExtResource( 4 )
+text = "Start Game"
+
+[node name="Game_settings" type="Panel" parent="."]
+margin_left = 431.0
+margin_top = 94.0
+margin_right = 757.0
+margin_bottom = 408.0
+custom_styles/panel = SubResource( 12 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label3" type="Label" parent="Game_settings"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -159.0
+margin_right = 159.0
+margin_bottom = 81.0
+custom_fonts/font = ExtResource( 4 )
+text = "Game Settings
+"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Game_settings"]
+margin_left = 13.0
+margin_top = 69.0
+margin_right = 85.0
+margin_bottom = 83.0
+custom_fonts/font = SubResource( 13 )
+text = "Score Limit"
+
+[node name="SpinBox" type="SpinBox" parent="Game_settings"]
+margin_left = 179.0
+margin_top = 68.0
+margin_right = 253.0
+margin_bottom = 92.0
+min_value = 2.0
+value = 2.0
+
+[connection signal="pressed" from="Game_panel/Create_server_button" to="." method="_on_Create_server_button_pressed"]
+[connection signal="pressed" from="Game_panel/Join_server_button" to="." method="_on_Join_server_button_pressed"]
+[connection signal="text_changed" from="Game_panel/LineEdit" to="." method="_on_LineEdit_text_changed"]
+[connection signal="pressed" from="Game_panel/Single_player_button" to="." method="_on_Single_player_button_pressed"]
+[connection signal="text_changed" from="Settings_panel/Username_edit" to="." method="_on_Username_edit_text_changed"]
+[connection signal="pressed" from="Quit_button" to="." method="_on_Quit_button_pressed"]
+[connection signal="pressed" from="Start_button" to="." method="_on_Start_button_pressed"]
+[connection signal="changed" from="Game_settings/SpinBox" to="." method="_on_SpinBox_changed"]
+[connection signal="value_changed" from="Game_settings/SpinBox" to="." method="_on_SpinBox_value_changed"]

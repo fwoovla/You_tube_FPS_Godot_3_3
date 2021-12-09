@@ -1,0 +1,33 @@
+[gd_scene load_steps=3 format=2]
+
+[sub_resource type="SpatialMaterial" id=1]
+albedo_color = Color( 0.321569, 0.294118, 0.294118, 1 )
+
+[sub_resource type="SpatialMaterial" id=2]
+albedo_color = Color( 0.313726, 0.278431, 0.278431, 1 )
+
+[node name="DOME" type="CSGCylinder"]
+transform = Transform( -4.37114e-08, 1, -4.37114e-08, 0, -4.37114e-08, -1, -1, -4.37114e-08, 1.91069e-15, 0, 24, 13 )
+use_in_baked_light = true
+radius = 12.0
+height = 30.0
+sides = 50
+material = SubResource( 1 )
+
+[node name="CSGCylinder" type="CSGCylinder" parent="."]
+transform = Transform( -4.37114e-08, 0, 1, 1.64203e-15, 1, 0, -1, -8.35188e-23, -4.37114e-08, 9.53674e-07, -2, 0 )
+use_in_baked_light = true
+operation = 2
+radius = 10.0
+height = 42.0
+sides = 50
+material = SubResource( 2 )
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="CSGBox" type="CSGBox" parent="CSGCylinder"]
+transform = Transform( 1, 1.64203e-15, 0, 1.64203e-15, 1, 0, 0, 0, 1, -7.26695, 0, 0 )
+width = 14.6871
+height = 63.9837
+depth = 34.9038
