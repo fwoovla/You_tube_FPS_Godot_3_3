@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://media/models/kenney/Models/GLTF format/rock.material" type="Material" id=1]
+
+[sub_resource type="ArrayMesh" id=1]
+resource_name = "terrain"
+surfaces/0 = {
+"aabb": AABB( -0.5, 0, -0.5, 1, 1e-05, 1.00001 ),
+"array_data": PoolByteArray( 0, 0, 0, 191, 0, 0, 0, 0, 0, 0, 0, 63, 0, 127, 0, 0, 127, 0, 0, 127, 235, 204, 43, 77, 0, 0, 0, 191, 0, 0, 0, 0, 0, 0, 0, 191, 0, 127, 0, 0, 127, 0, 0, 127, 235, 204, 171, 204, 0, 0, 0, 63, 0, 0, 0, 0, 0, 0, 0, 63, 0, 127, 0, 0, 127, 0, 0, 127, 235, 76, 43, 77, 0, 0, 0, 63, 0, 0, 0, 0, 0, 0, 0, 191, 0, 127, 0, 0, 127, 0, 0, 127, 235, 76, 171, 204 ),
+"array_index_data": PoolByteArray( 2, 0, 0, 0, 1, 0, 1, 0, 3, 0, 2, 0 ),
+"blend_shape_data": [  ],
+"format": 97559,
+"index_count": 6,
+"material": ExtResource( 1 ),
+"primitive": 4,
+"skeleton_aabb": [  ],
+"vertex_count": 4
+}
+
+[sub_resource type="ConcavePolygonShape" id=2]
+data = PoolVector3Array( 0.5, 0, 0.5, -0.5, 0, 0.5, -0.5, 0, -0.5, -0.5, 0, -0.5, 0.5, 0, -0.5, 0.5, 0, 0.5 )
+
+[node name="terrain" type="StaticBody"]
+
+[node name="terrain" type="MeshInstance" parent="."]
+mesh = SubResource( 1 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+shape = SubResource( 2 )

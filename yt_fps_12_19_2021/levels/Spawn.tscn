@@ -1,0 +1,62 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://media/textures/PNG (Transparent)/scorch_03.png" type="Texture" id=1]
+
+[sub_resource type="SpatialMaterial" id=1]
+albedo_color = Color( 0.2, 0.219608, 0.686275, 1 )
+metallic_specular = 0.0
+normal_enabled = true
+normal_scale = 1.0
+
+[sub_resource type="CylinderMesh" id=2]
+material = SubResource( 1 )
+top_radius = 0.5
+height = 0.3
+
+[sub_resource type="Curve" id=3]
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.645161, 0.643182 ), -0.852273, -0.852273, 0, 0, Vector2( 0.987097, 0 ), -0.411811, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=4]
+curve = SubResource( 3 )
+
+[sub_resource type="ParticlesMaterial" id=5]
+emission_shape = 1
+emission_sphere_radius = 0.5
+direction = Vector3( 0, 1, 0 )
+spread = 20.17
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 1.0
+scale_curve = SubResource( 4 )
+
+[sub_resource type="SpatialMaterial" id=6]
+flags_transparent = true
+flags_unshaded = true
+vertex_color_use_as_albedo = true
+params_blend_mode = 1
+params_billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+albedo_color = Color( 0.14902, 0.666667, 0.866667, 0.0352941 )
+albedo_texture = ExtResource( 1 )
+
+[sub_resource type="QuadMesh" id=7]
+material = SubResource( 6 )
+size = Vector2( 2, 2 )
+
+[node name="Spawn" type="Spatial"]
+
+[node name="MeshInstance" type="MeshInstance" parent="."]
+use_in_baked_light = true
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="point" type="Position3D" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
+
+[node name="Particles" type="Particles" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.265683, 0 )
+amount = 10
+lifetime = 0.87
+process_material = SubResource( 5 )
+draw_pass_1 = SubResource( 7 )

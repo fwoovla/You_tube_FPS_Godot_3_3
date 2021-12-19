@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://media/textures/wall_tex_2.png" type="Texture" id=1]
+
+[sub_resource type="SpatialMaterial" id=3]
+albedo_texture = ExtResource( 1 )
+roughness = 0.88
+uv1_triplanar = true
+
+[node name="sold _block" type="CSGBox"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 19.5, 3, -12.5 )
+use_in_baked_light = true
+use_collision = true
+width = 20.0
+height = 6.0
+depth = 20.0
+material = SubResource( 3 )

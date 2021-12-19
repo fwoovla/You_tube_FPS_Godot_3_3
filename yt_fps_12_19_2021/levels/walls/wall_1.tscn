@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=2]
+
+[sub_resource type="StreamTexture" id=4]
+flags = 23
+load_path = "res://.import/wall_tex_3.png-e480c3f7590b27946a72a7c6673c8ebb.s3tc.stex"
+
+[sub_resource type="SpatialMaterial" id=5]
+albedo_texture = SubResource( 4 )
+uv1_triplanar = true
+
+[node name="wall_1" type="CSGBox"]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 30.5, 7, -12.5 )
+use_in_baked_light = true
+use_collision = true
+height = 6.0
+depth = 20.0
+material = SubResource( 5 )

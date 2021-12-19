@@ -1,0 +1,65 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://levels/Level_4.gd" type="Script" id=1]
+[ext_resource path="res://levels/Spawn.tscn" type="PackedScene" id=2]
+[ext_resource path="res://items/Pea_shooter_item.tscn" type="PackedScene" id=3]
+[ext_resource path="res://levels/mazemap.tscn" type="PackedScene" id=4]
+[ext_resource path="res://items/sparkle_gun_item.tscn" type="PackedScene" id=5]
+[ext_resource path="res://items/Item_spawner.tscn" type="PackedScene" id=6]
+[ext_resource path="res://items/health_spawner.tscn" type="PackedScene" id=7]
+[ext_resource path="res://items/Blooper_item.tscn" type="PackedScene" id=8]
+
+[node name="Level_4" type="Spatial"]
+script = ExtResource( 1 )
+
+[node name="mazemap" parent="." instance=ExtResource( 4 )]
+
+[node name="Spawns" type="Spatial" parent="."]
+
+[node name="1" parent="Spawns" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 115.423, 2.18613, -63.848 )
+
+[node name="2" parent="Spawns" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.1974, 2.44974, -56.0548 )
+
+[node name="pickups" type="Spatial" parent="."]
+
+[node name="Item_spawn" parent="pickups" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 115.602, 1.99064, -74.5584 )
+_item = ExtResource( 5 )
+
+[node name="Item_spawn3" parent="pickups" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.09951, 1.99064, -99.4309 )
+_item = ExtResource( 5 )
+
+[node name="Item_spawn4" parent="pickups" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11.7358, 1.99064, -5.27497 )
+_item = ExtResource( 8 )
+
+[node name="Item_spawn5" parent="pickups" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 61.5093, 1.99064, -22.3822 )
+_item = ExtResource( 3 )
+
+[node name="Item_spawn7" parent="pickups" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 30.4176, 1.99064, -89.3957 )
+_item = ExtResource( 3 )
+
+[node name="Item_spawn6" parent="pickups" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 113.278, 1.99064, -99.0352 )
+_item = ExtResource( 3 )
+
+[node name="Item_spawn2" parent="pickups" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 117.172, 1.99064, -25.7518 )
+_item = ExtResource( 8 )
+
+[node name="health_spawner" parent="pickups" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5811, 2.32926, -10.4642 )
+
+[node name="health_spawner2" parent="pickups" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 80.9919, 2.32926, -36.2206 )
+
+[node name="health_spawner3" parent="pickups" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 75.0287, 1.39409, -100.298 )
+
+[node name="health_spawner4" parent="pickups" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 46.0204, 2.32926, -100.298 )
