@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://items/Item_spawner.gd" type="Script" id=1]
+[ext_resource path="res://items/item_spawn_model.tscn" type="PackedScene" id=3]
+
+[node name="Item_spawn" type="Spatial"]
+script = ExtResource( 1 )
+
+[node name="item_spawn" parent="." instance=ExtResource( 3 )]
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

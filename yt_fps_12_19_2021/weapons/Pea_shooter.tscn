@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://weapons/Pea_shooter.gd" type="Script" id=1]
+[ext_resource path="res://items/pea_shooter_model.tscn" type="PackedScene" id=2]
+
+[node name="Pea_shooter" type="Spatial" groups=[
+"Projectile",
+]]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.213953 )
+script = ExtResource( 1 )
+
+[node name="Muzzle" type="Position3D" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.00422 )
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.2
+
+[node name="pea_shooter" parent="." instance=ExtResource( 2 )]
+transform = Transform( 0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0.0506232 )
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

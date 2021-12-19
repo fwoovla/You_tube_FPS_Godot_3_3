@@ -1,0 +1,327 @@
+[gd_scene load_steps=21 format=2]
+
+[ext_resource path="res://mobs/Player.gd" type="Script" id=1]
+[ext_resource path="res://media/fonts/base_font_32.tres" type="DynamicFont" id=2]
+[ext_resource path="res://media/fonts/conthrax-sb.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://mobs/Score_list.gd" type="Script" id=4]
+[ext_resource path="res://mobs/robot_1_model.tscn" type="PackedScene" id=5]
+[ext_resource path="res://media/textures/love-shield.png" type="Texture" id=6]
+
+[sub_resource type="BoxShape" id=1]
+extents = Vector3( 0.573971, 1.07143, 0.877207 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 50
+outline_size = 3
+outline_color = Color( 0.0509804, 0.576471, 0.533333, 1 )
+font_data = ExtResource( 3 )
+
+[sub_resource type="Animation" id=3]
+length = 0.3
+step = 0.01
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.04, 0.15 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.149643, 0.153575 ), Vector2( 0.095897, 0.092013 ), Vector2( 0.149643, 0.153575 ) ]
+}
+
+[sub_resource type="DynamicFont" id=4]
+size = 46
+outline_size = 4
+outline_color = Color( 0.709804, 0.0313726, 0.0313726, 1 )
+font_data = ExtResource( 3 )
+
+[sub_resource type="StyleBoxFlat" id=5]
+bg_color = Color( 0.764706, 0.0470588, 0.0470588, 0.564706 )
+
+[sub_resource type="Animation" id=6]
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:custom_styles/panel:bg_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0.764706, 0.0470588, 0.0470588, 0.564706 ), Color( 0.764706, 0.0470588, 0.0470588, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
+[sub_resource type="StyleBoxFlat" id=7]
+bg_color = Color( 0.109804, 0.109804, 0.109804, 0.392157 )
+border_width_left = 2
+border_width_top = 24
+border_width_right = 2
+border_width_bottom = 2
+
+[sub_resource type="DynamicFont" id=8]
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=9]
+size = 14
+outline_size = 1
+outline_color = Color( 0.0980392, 0.0862745, 0.0862745, 1 )
+font_data = ExtResource( 3 )
+
+[sub_resource type="StyleBoxFlat" id=10]
+bg_color = Color( 0.682353, 0.898039, 0.294118, 0.556863 )
+
+[sub_resource type="Animation" id=11]
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:custom_styles/panel:bg_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0.682353, 0.898039, 0.294118, 0.556863 ), Color( 0.682353, 0.898039, 0.294118, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
+[sub_resource type="StyleBoxFlat" id=12]
+bg_color = Color( 0.294118, 0.898039, 0.403922, 0.556863 )
+
+[sub_resource type="Animation" id=13]
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:custom_styles/panel:bg_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0.294118, 0.898039, 0.403922, 0.556863 ), Color( 0.682353, 0.898039, 0.294118, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
+[sub_resource type="DynamicFont" id=14]
+size = 14
+outline_color = Color( 0.862745, 0.819608, 0.176471, 1 )
+font_data = ExtResource( 3 )
+
+[node name="Player" type="KinematicBody" groups=[
+"Player",
+]]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.784056, 0 )
+collision_layer = 3
+script = ExtResource( 1 )
+turret = NodePath("Turret")
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.70716, 0 )
+shape = SubResource( 1 )
+
+[node name="robot_1" parent="." instance=ExtResource( 5 )]
+
+[node name="Tween" type="Tween" parent="."]
+
+[node name="Turret" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.05154, -0.219618 )
+
+[node name="Camera" type="Camera" parent="Turret"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.564577, 1.12558 )
+
+[node name="network_timer" type="Timer" parent="."]
+wait_time = 0.05
+
+[node name="crosshair" type="Label" parent="."]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -20.0
+margin_right = 20.0
+margin_bottom = 39.0
+grow_horizontal = 2
+grow_vertical = 2
+custom_fonts/font = ExtResource( 2 )
+text = "+"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="health" type="Label" parent="."]
+visible = false
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -204.918
+margin_top = 494.369
+margin_right = -97.918
+margin_bottom = 555.369
+custom_fonts/font = SubResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="love-shield" type="Sprite" parent="health"]
+position = Vector2( 148.698, 37.662 )
+scale = Vector2( 0.149643, 0.153575 )
+texture = ExtResource( 6 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="health/love-shield"]
+"anims/New Anim" = SubResource( 3 )
+
+[node name="hit_label" type="Label" parent="."]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -21.5322
+margin_top = -99.4037
+margin_right = 18.4678
+margin_bottom = -43.4037
+custom_fonts/font = SubResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tween" type="Tween" parent="hit_label"]
+
+[node name="team" type="Label" parent="."]
+visible = false
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 13.0813
+margin_top = -288.261
+margin_right = 53.0809
+margin_bottom = -249.261
+custom_fonts/font = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="damage" type="Panel" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_styles/panel = SubResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="damage"]
+anims/damage = SubResource( 6 )
+
+[node name="Score_list" type="ItemList" parent="."]
+visible = false
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -234.005
+margin_bottom = 311.0
+custom_styles/bg = SubResource( 7 )
+custom_fonts/font = SubResource( 8 )
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Score_list"]
+margin_left = 51.6333
+margin_top = 4.48987
+margin_right = 179.633
+margin_bottom = 29.8978
+custom_fonts/font = SubResource( 9 )
+text = "current score"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="pickup_effect" type="Panel" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_styles/panel = SubResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="pickup_effect"]
+anims/pick_up = SubResource( 11 )
+
+[node name="health_effect" type="Panel" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_styles/panel = SubResource( 12 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="health_effect"]
+anims/pick_up = SubResource( 13 )
+
+[node name="ammo" type="Label" parent="."]
+visible = false
+margin_left = 82.3445
+margin_top = 510.652
+margin_right = 186.344
+margin_bottom = 571.652
+custom_fonts/font = ExtResource( 2 )
+text = "12"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="ammo"]
+margin_top = -18.3848
+margin_right = 55.0
+margin_bottom = -1.38477
+custom_fonts/font = SubResource( 14 )
+text = "ammo"
+
+[connection signal="timeout" from="network_timer" to="." method="_on_network_timer_timeout"]
+
+[editable path="robot_1"]

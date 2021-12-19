@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://media/models/ghost/ghost.glb" type="PackedScene" id=1]
+
+[node name="ghost" instance=ExtResource( 1 )]
+
+[node name="Sphere" parent="." index="0"]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 1.35497, 0 )
+
+[node name="Cylinder001" parent="Sphere" index="0"]
+transform = Transform( 0.292265, 3.17364e-08, -0.0902456, -0.0676842, -3.52329e-08, -0.389687, -3.88671e-08, 0.3, -3.62191e-08, -0.466928, 0.127144, 0.946556 )
+
+[node name="Cylinder002" parent="Sphere" index="1"]
+transform = Transform( 0.291346, 0.000269013, 0.0953838, 0.0715315, 0.00306223, -0.388442, -0.000991457, 0.299984, 0.00387967, 0.429189, 0.127144, 0.960984 )
